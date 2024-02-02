@@ -1,0 +1,35 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.offcanvas {
+    max-width: 70% !important;   
+    /* !important dile offcanvus width 70% */
+}
+body{
+    max-width: 1280px;
+}
+.register{
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
+.not-found{
+    margin-top: 100px;
+    text-align: center;
+    font-size: 100px;
+  }
+@media only screen and (max-width: 600px) {
+    .register{
+        width: 300px;
+    }
+    .not-found{
+        font-size: 50px;
+        text-align: center;
+    }
+  }
+
+ 
