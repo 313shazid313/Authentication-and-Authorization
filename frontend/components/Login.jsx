@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNew } from "../src/context/AuthContext";
 
 const Login = () => {
-  const urlLogin = "http://localhost:8000/api/login";
+  const urlLogin = "http://localhost:4000/api/login";
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
+  const storeToken = useNew();
   const handleLogin = (e) => {
     console.log(e);
     let name = e.target.name;
@@ -21,16 +23,16 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
+    
     axios
       .post(urlLogin, {
-        username: user.username,
         email: user.email,
-        phone: user.phone,
         password: user.password,
       })
       .then((res) => {
-        localStorage.setItem("token", res.data.token );
-        alert('Login Successful')
+        // localStorage.setItem("token", res.data.token );
+        storeToken(res.data.token);
+        alert("Login Successful");
         console.log(res);
       })
       .catch((error) => {

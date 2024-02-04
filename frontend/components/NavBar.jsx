@@ -1,6 +1,6 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
-import "./main.css";
+import "../style/main.css";
 const NavBar = () => {
   return (
     <>

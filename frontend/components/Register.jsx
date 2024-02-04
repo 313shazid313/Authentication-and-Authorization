@@ -1,15 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useNew } from "../src/context/AuthContext";
+
 const Register = () => {
   const navigate = useNavigate();
-  const url = "http://localhost:8000/api/register";
+  const url = "http://localhost:4000/api/register";
   const [user, setUser] = useState({
     username: "",
     email: "",
     phone: "",
     password: "",
   });
+
+  const storeToken = useNew()
 
   const handleInput = (e) => {
     console.log(e);
@@ -34,7 +38,8 @@ const Register = () => {
       .then((res) => {
         console.log(res);
         navigate("/login");
-        localStorage.setItem("token", res );
+        // localStorage.setItem("token", res );
+        storeToken(res.data.token)
         alert("Registration successful ");
       })
       .catch((error) => {
