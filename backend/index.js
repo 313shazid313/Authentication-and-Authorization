@@ -19,7 +19,7 @@ const ContactRouter = require("./router/contactRouter");
 dotenv.config();
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/myproject")
+  .connect("mongodb://127.0.0.1:27017/myroject")
   .then(() => {
     console.table("connected");
     app.listen(process.env.PORT, () => {

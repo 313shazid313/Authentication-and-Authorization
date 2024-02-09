@@ -29,6 +29,7 @@ const Contact = () => {
       })
       .then((res) => {
         console.log(res);
+        alert("message sent successfully");
       })
       .catch((error) => {
         console.log(error);

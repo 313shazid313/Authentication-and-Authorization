@@ -38,7 +38,7 @@ const registration = async (req, res, next) => {
         });
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 // ! registration code ends ------>
@@ -72,6 +72,18 @@ const login = async (req, res) => {
     console.log(error);
   }
 };
-//!login code ends ------>
+//!login code ends ---------------->
 
-module.exports = { MyHouse, registration, login };
+//! unique_user code starts ------------------>
+const unique_user = async (req, res) => {
+  try {
+    const userData = req.unique_user;
+    console.log(userData);
+    return res.status(200).json({ msg: userData });
+  } catch (error) {
+    console.log(`We are getting error from ${error}`);
+  }
+};
+//! unique_user code ends -------------------->
+
+module.exports = { MyHouse, registration, login, unique_user };

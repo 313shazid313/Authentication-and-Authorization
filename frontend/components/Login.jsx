@@ -9,7 +9,7 @@ const Login = () => {
     password: "",
   });
 
-  const storeToken = useNew();
+  const { storeToken } = useNew();
   const handleLogin = (e) => {
     console.log(e);
     let name = e.target.name;
@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
-    
+
     axios
       .post(urlLogin, {
         email: user.email,
@@ -31,12 +31,14 @@ const Login = () => {
       })
       .then((res) => {
         // localStorage.setItem("token", res.data.token );
-        storeToken(res.data.token);
         alert("Login Successful");
         console.log(res);
+        storeToken(res.data.token);
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
+        alert("invalid email or password");
       });
   };
 

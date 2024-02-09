@@ -13,8 +13,6 @@ const isValid = (validOrNotSchema) => async (req, res, next) => {
       extraDetails,
     };
 
-  
-  
     console.log(error);
     res.status(status).send({ message, extraDetails });
     next(JSON.stringify(error));

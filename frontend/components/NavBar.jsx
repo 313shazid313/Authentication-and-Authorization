@@ -1,7 +1,10 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 import "../style/main.css";
+import { useNew } from "../src/context/AuthContext";
+
 const NavBar = () => {
+  const { isLoggedin } = useNew();
   return (
     <>
       <div>
@@ -41,12 +44,7 @@ const NavBar = () => {
               <div className="offcanvas-body">
                 <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li className="nav-item" data-bs-dismiss="offcanvas">
-                    <NavLink
-                      to="/"
-                      className="nav-link"
-                      aria-current="page"
-                      
-                    >
+                    <NavLink to="/" className="nav-link" aria-current="page">
                       Home
                     </NavLink>
                   </li>
@@ -66,11 +64,25 @@ const NavBar = () => {
                       Services
                     </NavLink>
                   </li>
-                  <li data-bs-dismiss="offcanvas" className="nav-item">
-                    <NavLink className="nav-link" to="/login">
-                      Login
-                    </NavLink>
-                  </li>
+
+                  {isLoggedin ? (
+                    <li data-bs-dismiss="offcanvas" className="nav-item">
+                      <NavLink className="nav-link" to="/logout">
+                        Logout
+                      </NavLink>
+                    </li>
+                  ) : (
+                    <li data-bs-dismiss="offcanvas" className="nav-item">
+                      <NavLink className="nav-link" to="/login">
+                        Login
+                      </NavLink>
+                    </li>
+                  )}
+                  {/* <li data-bs-dismiss="offcanvas" className="nav-item">
+                      <NavLink className="nav-link" to="/login">
+                        Login
+                      </NavLink>
+                    </li> */}
                   <li data-bs-dismiss="offcanvas" className="nav-item">
                     <NavLink className="nav-link" to="/register">
                       Registration

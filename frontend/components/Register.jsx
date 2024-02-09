@@ -13,7 +13,7 @@ const Register = () => {
     password: "",
   });
 
-  const storeToken = useNew()
+  const { storeToken } = useNew();
 
   const handleInput = (e) => {
     console.log(e);
@@ -39,8 +39,8 @@ const Register = () => {
         console.log(res);
         navigate("/login");
         // localStorage.setItem("token", res );
-        storeToken(res.data.token)
-        alert("Registration successful ");
+        storeToken(res.data.token);
+        alert("Registration successful");
       })
       .catch((error) => {
         console.log(error);

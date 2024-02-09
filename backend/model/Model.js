@@ -48,16 +48,16 @@ regSchema.pre("save", async function (next) {
 //!hiding password using bcrypt ends --->
 
 //!token generate kore authentication authorization korar kaj kore // cookies hishabe browser e joma rakhe
-//! json web token (jwt) starts  ---->
+//! json web token code (jwt) starts  ---->
 
 regSchema.methods.generateToken = async function () {
   //! instance method
   try {
     return jwt.sign(
       {
-        userId: this._id.toString(),
-        email: this.email,
-        isAdmin: this.isAdmin,
+        userId: this._id.toString(), //? these are payload
+        email: this.email, //? these are payload
+        isAdmin: this.isAdmin, //? these are payload
       },
       process.env.SECRET,
       {
@@ -72,7 +72,7 @@ regSchema.methods.generateToken = async function () {
 //! and compatibility accross different JWT librarys and systems . it also aligns with the exceptaions
 //! that claims in a jwt are represented as string
 
-//! jwt ends --->
+//! jwt code ends --->
 
 const Users = new mongooose.model("User", regSchema);
 module.exports = Users;
