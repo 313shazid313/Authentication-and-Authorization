@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNew } from "../src/context/AuthContext";
 
 const Contact = () => {
   const url = "http://localhost:8000/api/contact";
@@ -8,6 +9,17 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [uniqueuserData, setUniqueuserData] = useState(true);
+  const { uniqueUser } = useNew();
+
+  if (uniqueuserData && uniqueUser) {
+    setUser({
+      username: uniqueUser.username,
+      email: uniqueUser.email,
+      message: "",
+    });
+    setUniqueuserData(false);
+  }
 
   const handleInputChange = (e) => {
     console.log(e);
