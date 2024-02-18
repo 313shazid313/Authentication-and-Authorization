@@ -1,6 +1,5 @@
 //context api
 import { createContext, useContext, useState } from "react";
-
 export const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
@@ -20,6 +19,13 @@ export const AuthProvider = ({ children }) => {
 
   let isLoggedin = !!token;
   //if the token is there isLoggedin will be true //otherwise false
+
+
+  // Authentication Starts ------------>
+  
+  // Authentication Ends ------------>
+
+
 
   return (
     <AuthContext.Provider value={{ isLoggedin, storeToken, LogoutUser }}>

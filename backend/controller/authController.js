@@ -78,7 +78,7 @@ const login = async (req, res) => {
 const unique_user = async (req, res) => {
   try {
     const userData = req.unique_user;
-    console.log(userData);
+    // console.log(userData);
     return res.status(200).json({ msg: userData });
   } catch (error) {
     console.log(`We are getting error from ${error}`);
