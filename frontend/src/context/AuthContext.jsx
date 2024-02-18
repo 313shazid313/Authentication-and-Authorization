@@ -35,8 +35,8 @@ export const AuthProvider = ({ children }) => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log("data of unique user", data);
-        setUniqueUser(data);
+        console.log("data of unique user", data.userData);
+        setUniqueUser(data.userData);
       }
     } catch (error) {
       console.log(error);
