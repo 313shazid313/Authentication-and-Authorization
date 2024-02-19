@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNew } from "../src/context/AuthContext";
 
 const Contact = () => {
-  const url = "http://localhost:8000/api/contact";
+  const url = "http://localhost:4000/api/contact";
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -42,6 +42,7 @@ const Contact = () => {
       .then((res) => {
         console.log(res);
         alert("message sent successfully");
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);

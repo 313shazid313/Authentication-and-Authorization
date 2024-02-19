@@ -38,7 +38,8 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
-        alert("invalid email or password");
+        alert("Invalid email or password");
+        window.location.reload();
       });
   };
 
