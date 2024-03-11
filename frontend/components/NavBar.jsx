@@ -61,7 +61,7 @@ const NavBar = () => {
                   </li>
                   <li data-bs-dismiss="offcanvas" className="nav-item">
                     <NavLink className="nav-link" to="/service">
-                      Services
+                      Products
                     </NavLink>
                   </li>
 
