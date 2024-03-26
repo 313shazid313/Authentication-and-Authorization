@@ -16,6 +16,7 @@ app.use(bodyParser.json()); //!  babohar kora jai tahole expresjs json read kort
 app.use(cors());
 const router = require("./router/authRouter");
 const ContactRouter = require("./router/contactRouter");
+const adminRouter = require('./router/adminRouter')
 dotenv.config();
 
 mongoose
@@ -32,3 +33,4 @@ mongoose
 
 app.use("/api", router);
 app.use("/api", ContactRouter);
+app.use("/api", adminRouter);

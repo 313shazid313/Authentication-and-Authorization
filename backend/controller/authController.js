@@ -11,6 +11,7 @@ const MyHouse = async (req, res) => {
 };
 
 //! registration code starts ------>
+
 const registration = async (req, res, next) => {
   try {
     const { username, email, phone, password } = req.body;

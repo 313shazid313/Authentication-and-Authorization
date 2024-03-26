@@ -8,12 +8,14 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import NotFound from "../components/notFound";
 import Logout from '../components/Logout'
-
+import Admin from '../components/Admin'
+ 
 function App() {
   return (
     <>
       <BrowserRouter>
         <NavBar />
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
