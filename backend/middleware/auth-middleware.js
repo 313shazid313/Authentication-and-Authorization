@@ -11,7 +11,6 @@ const authMiddleware = async (req, res, next) => {
   // const jwtToken = token.replace("Bearer", "").trim();
   //!'Bearer' word replace with empty string and remove space with trim() function
   // console.log("token from auth middleware", jwtToken);
-
   // console.log("token from auth middleware", token);
 
   try {

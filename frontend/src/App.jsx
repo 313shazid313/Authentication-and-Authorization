@@ -7,14 +7,16 @@ import Service from "../components/Service";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import NotFound from "../components/notFound";
-import Logout from '../components/Logout'
-import Admin from '../components/Admin'
- 
+import Logout from "../components/Logout";
+import Admin from "../components/Admin/Admin";
+import AdminUsers from "../components/Admin/AdminUsers";
+import Admincontacts from "../components/Admin/Admincontacts";
+
 function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar />  
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -24,6 +26,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<NotFound />} />
+          {/* ! nested root starts */}
+          <Route path="/admin" element={<Admin />}>
+            <Route path="allusers" element={<AdminUsers />} />
+            <Route path="allcontacts" element={<Admincontacts />} />
+          </Route>
+          {/* ! nested root ends */}
         </Routes>
       </BrowserRouter>
     </>
