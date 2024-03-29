@@ -3,9 +3,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 export const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
+
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [uniqueUser, setUniqueUser] = useState("");
+  const [isLoding, setIsloding] = useState(true);
+
+  const authToken = `${token}`;
 
   const storeToken = (serverToken) => {
     return localStorage.setItem("token", serverToken);
@@ -27,16 +31,21 @@ export const AuthProvider = ({ children }) => {
   const authenticateUser = async () => {
     // we can do this
     try {
+      setIsloding(true);
       const response = await fetch("http://localhost:4000/api/unique_user", {
         method: "GET",
         headers: {
-          Authorization: `${token}`,
+          Authorization: authToken,
         },
       });
       if (response.ok) {
         const data = await response.json();
         console.log("data of unique user", data.userData);
         setUniqueUser(data.userData);
+        setIsloding(false);
+      } else {
+        console.error("error fetching user data");
+        setIsloding(false);
       }
     } catch (error) {
       console.log(error);
@@ -51,7 +60,14 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedin, storeToken, LogoutUser, uniqueUser }}
+      value={{
+        isLoggedin,
+        storeToken,
+        LogoutUser,
+        uniqueUser,
+        authToken,
+        isLoding,
+      }}
     >
       {/* isLoggedin first ei likhte hobe // kintu keno?? */}
       {children}

@@ -29,6 +29,13 @@
 }
 
 
+.container2{
+  padding: 20px;
+  
+}
+.container1{
+  display: flex;
+}
 @media only screen and (max-width: 600px) {
     .register{
         width: 300px;
