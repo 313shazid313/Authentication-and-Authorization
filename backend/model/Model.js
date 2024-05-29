@@ -74,5 +74,5 @@ regSchema.methods.generateToken = async function () {
 
 //! jwt code ends --->
 
-const Users = new mongooose.model("User", regSchema);
+const Users = new mongoose.model("User", regSchema);
 module.exports = Users;
