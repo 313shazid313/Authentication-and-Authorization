@@ -1,10 +1,10 @@
-const mongooose = require("mongoose");
+const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const regSchema = new mongooose.Schema({
+const regSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
